@@ -3,11 +3,13 @@ pragma solidity ^0.5.0;
 // Zap contracts's methods that subscriber can call knowing the addresses
 contract ZapBridge{
     function getContract(string memory contractName) public view returns (address); //coordinator
-    function bond(address provider ,bytes32 endpoint, uint256 dots) public;
-    function unbond(address provider ,bytes32 endpoint, uint256 dots) public;
+    function bond(address provider,bytes32 endpoint, uint256 dots) public;
+    function unbond(address provider,bytes32 endpoint, uint256 dots) public;
     function calcZapForDots(address provider, bytes32 endpoint, uint256 dots) external view returns (uint256); //bondage
-    function delegateBond(address holderAddress, address oracleAddress, bytes32 endpoint, uint256 numDots) external returns (uint256 boundZap); //bondage
-    function query(address provider, string calldata queryString, bytes32 endpoint, bytes32[] calldata params) external returns (uint256); //dispatch
+    function delegateBond(address holderAddress, address oracleAddress, bytes32 endpoint, uint256 numDots) external returns (uint256 boundZap);
+     //bondage
+    function query(address provider, string calldata queryString, bytes32 endpoint, bytes32[] calldata params) external returns (uint256);
+     //dispatch
     function approve(address bondage, uint256 amount) public returns (bool); // Zap Token
 }
 
